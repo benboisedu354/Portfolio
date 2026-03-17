@@ -35,13 +35,6 @@ export default function Landing({ onPlayClick }: { onPlayClick: () => void }) {
             <path d="M8 5v14l11-7z" />
           </svg>
         </button>
-
-        {/* Scroll indicator */}
-        <div className="pt-12 animate-bounce">
-          <svg className="w-6 h-6 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </div>
       </div>
     </div>
   )
