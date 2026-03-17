@@ -101,9 +101,9 @@ export default function Contact() {
 
         <div className="space-y-8">
           <p className="text-gray-300 text-lg">
-            Vous avez un projet en tête ? N&apos;hésitez pas à me contacter. Je serais ravi de collaborer avec vous !
+            {/* A la recherche d'un emploi */}
+            Je suis actuellement à la recherche d'opportunités professionnelles en tant que développeur web. N'hésitez pas à me contacter !
           </p>
-
           <div className="space-y-4">
             {[
               { label: 'Email', value: 'benjaminboisedu354@gmail.com', href: 'mailto:benjaminboisedu354@gmail.com' },

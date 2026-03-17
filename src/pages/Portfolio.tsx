@@ -42,10 +42,11 @@ export default function Portfolio() {
       <div className="bg-darker/50 backdrop-blur-sm border-t border-indigo-500/20">
         <div className="max-w-6xl mx-auto px-4 py-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Change les Stats par mes années d'etudes, mes projets etc */}
             {[
-              { number: '10+', label: 'Projets complétés' },
-              { number: '3+', label: 'Années expérience' },
-              { number: '100%', label: 'Client satisfaction' },
+              { number: '4+', label: 'Projets complétés' },
+              { number: '3+', label: 'Années de fac' },
+              { number: '10+', label: 'Technologies maîtrisées' },
             ].map((stat, i) => (
               <div key={i} className="text-center group">
                 <div className="text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent mb-2">
