@@ -1,5 +1,3 @@
-// Types et interfaces pour le portfolio
-
 export interface Project {
   id: string
   title: string

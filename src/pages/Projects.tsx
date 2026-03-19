@@ -1,30 +1,10 @@
 import { useEffect } from 'react'
+import { projects } from '../Data/Project.ts'
 
 export default function Projects() {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
-
-  const projects = [
-    {
-      title: 'Projet 3D Interactif',
-      description: 'Une expérience interactive utilisant Three.js et React Three Fiber',
-      tags: ['React', 'Three.js', 'TypeScript'],
-      link: '#',
-    },
-    {
-      title: 'Application Web',
-      description: 'Application full stack avec React et Node.js',
-      tags: ['React', 'Node.js', 'MongoDB'],
-      link: '#',
-    },
-    {
-      title: 'Visualisation Données',
-      description: 'Dashboard interactif avec graphiques 3D',
-      tags: ['React Three Fiber', 'D3.js', 'WebGL'],
-      link: '#',
-    },
-  ]
 
   return (
     <div className="pt-20 min-h-screen">
