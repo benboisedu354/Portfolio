@@ -1,4 +1,5 @@
 export interface Project {
+  image: string | undefined
   title: string
   description: string
   tags: string[]
@@ -39,6 +40,7 @@ export const projects: Project[] = [
     description: 'Application de gestion de stock alimentaire pour éviter le gaspillage',
     tags: ['React', 'Laravel', 'MySQL'],
     link: 'https://github.com/benboisedu354/SmartPantry',
+    image: undefined,
   },
   {
     title: 'Dailies',
@@ -46,12 +48,15 @@ export const projects: Project[] = [
       'Application mobile de suivi des tâches quotidiennes avec notifications et graphiques de progression',
     tags: ['Kotlin', 'Android', 'Sqlite'],
     link: 'https://github.com/benboisedu354/Dailies_Kotlin',
+    image:
+      'https://github.com/benboisedu354/Dailies_Kotlin/blob/main/app/src/main/res/drawable/logo_appli.png?raw=true',
   },
   {
     title: 'Labyrinthe Python',
     description: 'Jeu de labyrinthe en Python avec Pygame, généré aléatoirement à chaque partie',
     tags: ['Python', 'Pygame'],
     link: 'https://github.com/benboisedu354/pygame_laby',
+    image: undefined,
   },
   {
     title: 'MatterCrafter',
@@ -59,12 +64,14 @@ export const projects: Project[] = [
       "Jeu de fusion d'éléments en VR développé avec Unity, où les joueurs peuvent créer de nouveaux éléments en combinant des matériaux de base",
     tags: ['Unity', 'VR', 'C#'],
     link: 'https://github.com/maximelegru/MatterCrafter',
+    image: undefined,
   },
   {
     title: 'Portfolio Personnel',
     description: 'Site portfolio interactif avec animations 3D',
     tags: ['React', 'Three.js', 'Tailwind CSS'],
     link: 'https://github.com/benboisedu354/Portfolio',
+    image: undefined,
   },
 ]
 

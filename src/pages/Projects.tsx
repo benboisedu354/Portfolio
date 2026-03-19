@@ -19,7 +19,13 @@ export default function Projects() {
               key={i}
               className="group bg-indigo-500/5 border border-indigo-500/30 rounded-lg overflow-hidden hover:border-purple-500/50 transition-all hover:shadow-lg hover:shadow-purple-500/20"
             >
-              <div className="h-40 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 group-hover:to-purple-500/40 transition-colors" />
+              <div className="h-40 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 group-hover:to-purple-500/40 transition-colors">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="p-6 space-y-4">
                 <h3 className="text-xl font-bold text-indigo-300 group-hover:text-purple-300 transition-colors">
                   {project.title}
