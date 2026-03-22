@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { projects } from '../Data/Project.ts'
 
 export default function Projects() {
@@ -6,15 +6,43 @@ export default function Projects() {
     window.scrollTo(0, 0)
   }, [])
 
+  // I want function to switch between dev project and graphic project, but for now I will just display the dev projects, I will add the graphic projects later
+
+  const [activeFilter, setActiveFilter] = useState('dev')
+
+  const filteredProjects = projects.filter((project) => project.type === activeFilter)
+
   return (
     <div className="pt-20 min-h-screen">
       <div className="max-w-6xl mx-auto px-4 py-20">
         <h1 className="text-5xl font-bold mb-12 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
           Projets
         </h1>
-
+        {/* Input to chose between dev project and graphic project when the input is active change the background color */}
+        <div className="flex gap-4 mb-12">
+          <button
+            onClick={() => setActiveFilter('dev')}
+            className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
+              activeFilter === 'dev'
+                ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white'
+                : 'bg-indigo-500/5 text-indigo-400 hover:bg-indigo-500/10'
+            }`}
+          >
+            Projets de Développement
+          </button>
+          <button
+            onClick={() => setActiveFilter('graphic')}
+            className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
+              activeFilter === 'graphic'
+                ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white'
+                : 'bg-indigo-500/5 text-indigo-400 hover:bg-indigo-500/10'
+            }`}
+          >
+            Projets Graphiques
+          </button>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, i) => (
+          {filteredProjects.map((project, i) => (
             <div
               key={i}
               className="group bg-indigo-500/5 border border-indigo-500/30 rounded-lg overflow-hidden hover:border-purple-500/50 transition-all hover:shadow-lg hover:shadow-purple-500/20"

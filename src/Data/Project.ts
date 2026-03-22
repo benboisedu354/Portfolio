@@ -4,6 +4,7 @@ export interface Project {
   description: string
   tags: string[]
   link: string
+  type?: 'dev' | 'graphic'
 }
 
 export interface language {
@@ -41,6 +42,7 @@ export const projects: Project[] = [
     tags: ['React', 'Laravel', 'MySQL'],
     link: 'https://github.com/benboisedu354/SmartPantry',
     image: undefined,
+    type: 'dev',
   },
   {
     title: 'Dailies',
@@ -50,6 +52,7 @@ export const projects: Project[] = [
     link: 'https://github.com/benboisedu354/Dailies_Kotlin',
     image:
       'https://github.com/benboisedu354/Dailies_Kotlin/blob/main/app/src/main/res/drawable/logo_appli.png?raw=true',
+    type: 'dev',
   },
   {
     title: 'Labyrinthe Python',
@@ -57,6 +60,7 @@ export const projects: Project[] = [
     tags: ['Python', 'Pygame'],
     link: 'https://github.com/benboisedu354/pygame_laby',
     image: undefined,
+    type: 'dev',
   },
   {
     title: 'MatterCrafter',
@@ -65,6 +69,7 @@ export const projects: Project[] = [
     tags: ['Unity', 'VR', 'C#'],
     link: 'https://github.com/maximelegru/MatterCrafter',
     image: undefined,
+    type: 'dev',
   },
   {
     title: 'Portfolio Personnel',
@@ -72,6 +77,16 @@ export const projects: Project[] = [
     tags: ['React', 'Three.js', 'Tailwind CSS'],
     link: 'https://github.com/benboisedu354/Portfolio',
     image: undefined,
+    type: 'dev',
+  },
+  {
+    title: 'Etiquette Eau de Vie de Bière',
+    description:
+      "Design d'étiquettes pour une eau de vie de bière pour la distillerie Gueules Noires, réalisées avec Figma",
+    tags: ['Figma', 'Design Graphique'],
+    link: './assets/eau_de_vie_biere.png',
+    image: undefined,
+    type: 'graphic',
   },
 ]
 
