@@ -45,7 +45,6 @@ export default function Contact() {
       ...prev,
       [id]: value,
     }))
-    // Effacer l'erreur pour ce champ
     if (errors[id as keyof ContactFormData]) {
       setErrors((prev) => ({
         ...prev,
@@ -64,7 +63,6 @@ export default function Contact() {
     setIsSubmitting(true)
     setFeedback(null)
 
-    // Effacer le timeout précédent s'il existe
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current)
     }
@@ -76,9 +74,7 @@ export default function Contact() {
         type: 'success',
         message: result.message || 'Message envoyé avec succès !',
       })
-      // Réinitialiser le formulaire
       setFormData({ name: '', email: '', message: '' })
-      // Masquer le message de succès après 5 secondes
       timeoutRef.current = setTimeout(() => {
         setFeedback(null)
       }, 5000)
@@ -101,7 +97,6 @@ export default function Contact() {
 
         <div className="space-y-8">
           <p className="text-gray-300 text-lg">
-            {/* A la recherche d'un emploi */}
             Je suis actuellement à la recherche d'opportunités professionnelles en tant que développeur web. N'hésitez pas à me contacter !
           </p>
           <div className="space-y-4">
