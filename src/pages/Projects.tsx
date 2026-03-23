@@ -7,20 +7,28 @@ export default function Projects() {
     window.scrollTo(0, 0)
   }, [])
 
-  // I want function to switch between dev project and graphic project, but for now I will just display the dev projects, I will add the graphic projects later
-
   const [activeFilter, setActiveFilter] = useState('dev')
-
   const filteredProjects = projects.filter((project) => project.type === activeFilter)
+  const [selectedTag, setSelectedTag] = useState('')
+
+  const handleTagChange = (tag: string) => {
+    setSelectedTag(tag)
+  }
+
+  const filteredByTagProjects = selectedTag
+    ? filteredProjects.filter((project) => project.tags.includes(selectedTag))
+    : filteredProjects
+
+  
 
   return (
     <div className="pt-20 min-h-screen">
       <div className="max-w-6xl mx-auto px-4 py-20">
         <h1 className="text-5xl font-bold mb-12 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-          Projets
+          Mes Réalisations
         </h1>
-        {/* Input to chose between dev project and graphic project when the input is active change the background color */}
         <div className="flex gap-4 mb-12">
+          {/* {I want a small number next to the button to indicate the number of projects} */}
           <button
             onClick={() => setActiveFilter('dev')}
             className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
@@ -30,7 +38,15 @@ export default function Projects() {
             }`}
           >
             Projets de Développement
+          <span className={`px-1 py-2 rounded-lg font-semibold transition-colors  ${
+              activeFilter === 'dev'
+                ? 'text-white'
+                : 'bg-indigo-500/5 text-indigo-400 hover:bg-indigo-500/10'
+            }`}>
+            ({projects.filter((project) => project.type === 'dev').length})
+          </span>
           </button>
+
           <button
             onClick={() => setActiveFilter('graphic')}
             className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
@@ -40,15 +56,23 @@ export default function Projects() {
             }`}
           >
             Projets Graphiques
+          <span className={`px-1 py-2 rounded-lg font-semibold transition-colors${
+              activeFilter === 'graphic'
+                ? 'text-white'
+                : 'bg-indigo-500/5 text-indigo-400 hover:bg-indigo-500/10'
+            }`}> 
+            ({projects.filter((project) => project.type === 'graphic').length})
+          </span>
           </button>
-          <FilterTagProject />
+
+          <FilterTagProject onTagChange={handleTagChange} />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, i) => (
+          {filteredByTagProjects.map((project, i) => (
             <div
               key={i}
-              className="group bg-indigo-500/5 border border-indigo-500/30 rounded-lg overflow-hidden hover:border-purple-500/50 transition-all hover:shadow-lg hover:shadow-purple-500/20"
+              className=" grid grid-cols-1 grid-rows-1 group bg-indigo-500/5 border border-indigo-500/30 rounded-lg overflow-hidden hover:border-purple-500/50 transition-all hover:shadow-lg hover:shadow-purple-500/20"
             >
               <div className="h-40 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 group-hover:to-purple-500/40 transition-colors">
                 <img
@@ -72,12 +96,27 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                <a
-                  href={project.link}
-                  className="inline-block mt-4 text-indigo-400 hover:text-purple-400 transition-colors font-semibold"
-                >
-                  Voir le projet →
-                </a>
+                <div className="flex flex-row gap-2 flex-wrap mt-4 justify-around ">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-4 text-indigo-400 hover:text-purple-400 transition-colors font-semibold"
+                  >
+                    Voir le projet 
+                  </a>
+                  {project.video && (
+                    <a
+                      href={project.video}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block mt-4 text-indigo-400 hover:text-purple-400 transition-colors font-semibold"
+                    > 
+                      Voir la vidéo 
+                    </a>
+                  )}
+                </div>
+
               </div>
             </div>
           ))}

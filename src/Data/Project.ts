@@ -4,7 +4,8 @@ export interface Project {
   description: string
   tags: string[]
   link: string
-  type?: 'dev' | 'graphic'
+  type?: 'dev' | 'graphic' 
+  video?: string
 }
 
 export interface language {
@@ -43,6 +44,7 @@ export const projects: Project[] = [
     link: 'https://github.com/benboisedu354/SmartPantry',
     image: undefined,
     type: 'dev',
+    video: undefined,
   },
   {
     title: 'Dailies',
@@ -53,6 +55,7 @@ export const projects: Project[] = [
     image:
       'https://github.com/benboisedu354/Dailies_Kotlin/blob/main/app/src/main/res/drawable/logo_appli.png?raw=true',
     type: 'dev',
+    video: undefined,
   },
   {
     title: 'Labyrinthe Python',
@@ -61,6 +64,7 @@ export const projects: Project[] = [
     link: 'https://github.com/benboisedu354/pygame_laby',
     image: undefined,
     type: 'dev',
+    video: undefined,
   },
   {
     title: 'MatterCrafter',
@@ -68,25 +72,28 @@ export const projects: Project[] = [
       "Jeu de fusion d'éléments en VR développé avec Unity, où les joueurs peuvent créer de nouveaux éléments en combinant des matériaux de base",
     tags: ['Unity', 'VR', 'C#'],
     link: 'https://github.com/maximelegru/MatterCrafter',
-    image: undefined,
+    image: "https://youtu.be/JgGtTLXD4Cs",
     type: 'dev',
+    video: "https://youtu.be/JgGtTLXD4Cs",
   },
   {
     title: 'Portfolio Personnel',
     description: 'Site portfolio interactif avec animations 3D',
     tags: ['React', 'Three.js', 'Tailwind CSS'],
     link: 'https://github.com/benboisedu354/Portfolio',
-    image: undefined,
+    image: "/thumbnail/portfolio.png",
     type: 'dev',
+    video: undefined,
   },
   {
     title: 'Etiquette Eau de Vie de Bière',
     description:
       "Design d'étiquettes pour une eau de vie de bière pour la distillerie Gueules Noires, réalisées avec Figma",
     tags: ['Figma', 'Design Graphique'],
-    link: './assets/eau_de_vie_biere.png',
-    image: undefined,
+    link: 'https://www.figma.com/proto/WW6Dy5gTJdtXJ5I28FxcRZ/Etiquettes?node-id=26-7&p=f&t=nH9NYfOhYoKcesC1-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1',
+    image: '/thumbnail/eau_de_vie_biere.png',
     type: 'graphic',
+    video: undefined,
   },
 ]
 
