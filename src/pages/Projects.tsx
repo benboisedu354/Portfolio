@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { projects } from '../Data/Project.ts'
+import FilterTagProject from '../components/Features/FilterTagProject.tsx'
 
 export default function Projects() {
   useEffect(() => {
@@ -40,7 +41,9 @@ export default function Projects() {
           >
             Projets Graphiques
           </button>
+          <FilterTagProject />
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, i) => (
             <div
