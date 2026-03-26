@@ -18,6 +18,7 @@ export interface otherProject {
   title: string
   tech: string
   icon: string
+  link?: string
 }
 
 export interface TimelineEvent {
@@ -69,10 +70,10 @@ export const projects: Project[] = [
   {
     title: 'MatterCrafter',
     description:
-      "Jeu de fusion d'éléments en VR développé avec Unity, où les joueurs peuvent créer de nouveaux éléments en combinant des matériaux de base",
+      "Matter Crafter est un jeu de simulation en réalité virtuelle où la recherche et l'expérimentation sont au cœur du gameplay. Le but du jeu est de créer un maximum d’éléments et d’objets en combinant quatre éléments initiaux : la terre, le vent, l'eau et le feu. Les joueurs peuvent interagir avec certaines de leurs créations pour déclencher des événements amusants, comme des explosions.",
     tags: ['Unity', 'VR', 'C#'],
     link: 'https://github.com/maximelegru/MatterCrafter',
-    image: "https://youtu.be/JgGtTLXD4Cs",
+    image: "/thumbnail/mattercrafter.png",
     type: 'dev',
     video: "https://youtu.be/JgGtTLXD4Cs",
   },
@@ -108,6 +109,7 @@ export const otherProjects: otherProject[] = [
     title: 'Application Mobile de Voyage',
     tech: 'React Native · Laravel · MySQL',
     icon: '✈️',
+    link : ''
   },
   {
     title: 'Gestion du Garde-manger',
@@ -124,6 +126,16 @@ export const otherProjects: otherProject[] = [
     tech: 'React · Laravel · MySQL',
     icon: '🤖',
   },
+  {
+    title : 'Jeu en réalité virtuelle MatterCrafter',
+    tech : 'Unity · C# · VR',
+    icon : '🎮',
+  },
+  {
+    title : 'Portfolio Personnel',
+    tech : 'React · Three.js · Tailwind CSS',
+    icon : '💻',
+  }
 ]
 
 export const skills: string[] = [

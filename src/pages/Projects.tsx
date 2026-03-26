@@ -1,8 +1,16 @@
 import { useEffect, useState } from 'react'
 import { projects } from '../Data/Project.ts'
 import FilterTagProject from '../components/Features/FilterTagProject.tsx'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function Projects() {
+
+  const { search } = useLocation()
+  const queryParams = new URLSearchParams(search)
+  const tag = queryParams.get('tag')
+
+
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -19,6 +27,15 @@ export default function Projects() {
     ? filteredProjects.filter((project) => project.tags.includes(selectedTag))
     : filteredProjects
 
+
+    useEffect(() => {
+      if (tag) {
+        setSelectedTag(tag)
+      }
+    }, [tag])
+
+
+
   
 
   return (
@@ -28,7 +45,6 @@ export default function Projects() {
           Mes Réalisations
         </h1>
         <div className="flex gap-4 mb-12">
-          {/* {I want a small number next to the button to indicate the number of projects} */}
           <button
             onClick={() => setActiveFilter('dev')}
             className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
@@ -70,6 +86,7 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredByTagProjects.map((project, i) => (
+            <Link to={`/projects/${project.title.replace(/\s+/g, '-').toLowerCase()}`} key={i} className="no-underline" preventScrollReset >
             <div
               key={i}
               className=" grid grid-cols-1 grid-rows-1 group bg-indigo-500/5 border border-indigo-500/30 rounded-lg overflow-hidden hover:border-purple-500/50 transition-all hover:shadow-lg hover:shadow-purple-500/20"
@@ -85,7 +102,7 @@ export default function Projects() {
                 <h3 className="text-xl font-bold text-indigo-300 group-hover:text-purple-300 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-400">{project.description}</p>
+                <p className="text-gray-400">{project.description.substring(0, 100)}...</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, j) => (
                     <span
@@ -116,9 +133,9 @@ export default function Projects() {
                     </a>
                   )}
                 </div>
-
               </div>
             </div>
+            </Link>
           ))}
         </div>
       </div>

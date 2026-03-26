@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { languages, otherProjects, skills, timeline } from '../Data/Project.ts'
+import { Link } from 'react-router-dom'
 
 export default function About() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
@@ -7,6 +8,12 @@ export default function About() {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+
+  // {I want to add a small animation when the user clicks on an event in the timeline, it will expand to show more details and branches}
+  const toggleExpanded = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index)
+  }
+
 
   return (
     <div className="pt-20 min-h-screen bg-gradient-to-b from-darker to-dark">
@@ -34,7 +41,7 @@ export default function About() {
                       ? 'bg-gradient-to-r from-indigo-500 to-purple-500 border-indigo-300 shadow-lg shadow-indigo-500/50'
                       : 'bg-darker border-indigo-500 hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/30'
                   }`}
-                  onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+                  onClick={() => toggleExpanded(index)}
                 >
                   <span className="text-xl font-bold text-white">{event.year.split('-')[0]}</span>
                 </div>
@@ -187,16 +194,19 @@ export default function About() {
           <h2 className="text-3xl font-bold text-indigo-400">Projets Techniques</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {otherProjects.map((project, i) => (
-              <div
-                key={i}
-                className="p-6 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-indigo-500/30 rounded-lg hover:border-purple-500/50 hover:shadow-lg hover:shadow-indigo-500/20 transition-all group"
-              >
-                <div className="text-4xl mb-4">{project.icon}</div>
-                <h3 className="text-xl font-bold text-indigo-300 mb-2 group-hover:text-purple-300 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-gray-400">{project.tech}</p>
-              </div>
+              // {redirect to the project page}
+              <Link to={project.link || '#'} target="_blank" rel="noopener noreferrer" key={i} className="group">
+                <div
+                  key={i}
+                  className="p-6 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-indigo-500/30 rounded-lg hover:border-purple-500/50 hover:shadow-lg hover:shadow-indigo-500/20 transition-all group"
+                >
+                  <div className="text-4xl mb-4">{project.icon}</div>
+                  <h3 className="text-xl font-bold text-indigo-300 mb-2 group-hover:text-purple-300 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-gray-400">{project.tech}</p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
