@@ -13,25 +13,24 @@ export default function FilterTagProject({ onTagChange }: { onTagChange: (tag: s
 
 
   return (
-    <div className="flex flex-wrap gap-2">
-      {/* {Select input for filtering by tag} */}
-      <form action="" className="w-full md:w-auto">
-        <select
-          name="tags"
-          id="tags"
-          className="px-4 py-2 rounded-lg border border-indigo-500/30 bg-indigo-500/5 hover:bg-indigo-500/10 transition-colors w-full md:w-auto text-sm font-semibold text-white"
-          onChange={handleChange}
-        >
-          <option value="" className='bg-gradient-to-r from-indigo-500 to-purple-500 text-indigo-400 hover:bg-gradient-to-r hover:from-indigo-500/50 hover:to-purple-500/50 hover:text-white transition-colors '>
-            Filtrer par tag
-          </option>
-          {uniqueTags.map((tag, i) => (
-            <option key={i} value={tag} className='bg-gradient-to-r from-indigo-500 to-purple-500 text-indigo-400 hover:bg-gradient-to-r hover:from-indigo-500/50 hover:to-purple-500/50 hover:text-white transition-colors '>
-              {tag}
+    <div className="flex flex-wrap gap-2 mb-6 items-center justify-end">
+        <form className="w-full md:w-auto sm:col-span-2 md:col-span-3 lg:col-span-4">
+          <select
+            name="tags"
+            id="tags"
+            className="px-4 py-2 rounded-lg border border-indigo-500/30 bg-indigo-500/5 hover:bg-indigo-500/10 transition-colors w-full md:w-auto text-sm font-semibold text-white"
+            onChange={handleChange}
+          >
+            <option value="" className='bg-gradient-to-r from-indigo-500 to-purple-500 text-indigo-400 hover:bg-gradient-to-r hover:from-indigo-500/50 hover:to-purple-500/50 hover:text-white transition-colors '>
+              Filtrer par tag
             </option>
-          ))}
-        </select>
-      </form>
+            {uniqueTags.map((tag, i) => (
+              <option key={i} value={tag} className='bg-gradient-to-r from-indigo-500 to-purple-500 text-indigo-400 hover:bg-gradient-to-r hover:from-indigo-500/50 hover:to-purple-500/50 hover:text-white transition-colors '>
+                {tag}
+              </option>
+            ))}
+          </select>
+        </form>
     </div>
   )
 }

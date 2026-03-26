@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import ThreeDScene from '@components/3d/ThreeDScene'
 import { timeline } from '../Data/Project.ts'
+import { Link } from 'react-router-dom'
 
 export default function Portfolio() {
   useEffect(() => {
@@ -23,14 +24,10 @@ export default function Portfolio() {
           </p>
           <div className="flex gap-3 sm:gap-4 pt-8 justify-center md:justify-start flex-wrap">
             <button className="px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg font-semibold transition-all transform hover:scale-105 hover:shadow-[0_0_20px_#6366f1] relative group overflow-hidden text-sm sm:text-base">
-              <a href="/projects">
-                <span className="relative z-10">Voir mes projets</span>
-              </a>
+              <Link to="/projects">Voir mes projets</Link>
             </button>
             <button className="px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-semibold text-indigo-400 bg-indigo-500/5 transition-all transform hover:scale-105 relative group overflow-hidden text-sm sm:text-base">
-              <a href="/contact">
-                <span className="relative z-10">Me contacter</span>
-              </a>
+             <Link to="/contact">Me contacter</Link>
             </button>
           </div>
         </div>

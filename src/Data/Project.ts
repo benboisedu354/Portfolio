@@ -3,9 +3,12 @@ export interface Project {
   title: string
   description: string
   tags: string[]
-  link: string
+  statut: 'En cours' | 'Terminé' | 'À venir'
+  link?: string
   type?: 'dev' | 'graphic' 
   video?: string
+  place : string | undefined
+  date : string | undefined
 }
 
 export interface language {
@@ -42,59 +45,91 @@ export const projects: Project[] = [
     title: 'SmartPantry',
     description: 'Application de gestion de stock alimentaire pour éviter le gaspillage',
     tags: ['React', 'Laravel', 'MySQL'],
+    statut: 'Terminé',
     link: 'https://github.com/benboisedu354/SmartPantry',
     image: undefined,
     type: 'dev',
     video: undefined,
+    place : "UQAC - Québec",
+    date : "Automne 2024"
   },
   {
     title: 'Dailies',
     description:
       'Application mobile de suivi des tâches quotidiennes avec notifications et graphiques de progression',
     tags: ['Kotlin', 'Android', 'Sqlite'],
+    statut: 'Terminé',
     link: 'https://github.com/benboisedu354/Dailies_Kotlin',
     image:
       'https://github.com/benboisedu354/Dailies_Kotlin/blob/main/app/src/main/res/drawable/logo_appli.png?raw=true',
     type: 'dev',
     video: undefined,
+    place : "UQAC - Québec",
+    date : "Hiver 2025"
   },
   {
     title: 'Labyrinthe Python',
     description: 'Jeu de labyrinthe en Python avec Pygame, généré aléatoirement à chaque partie',
     tags: ['Python', 'Pygame'],
+    statut: 'Terminé',
     link: 'https://github.com/benboisedu354/pygame_laby',
     image: undefined,
     type: 'dev',
     video: undefined,
+    place : "IUT de Lens - France",
+    date : "Juin 2025"
+
   },
   {
     title: 'MatterCrafter',
     description:
       "Matter Crafter est un jeu de simulation en réalité virtuelle où la recherche et l'expérimentation sont au cœur du gameplay. Le but du jeu est de créer un maximum d’éléments et d’objets en combinant quatre éléments initiaux : la terre, le vent, l'eau et le feu. Les joueurs peuvent interagir avec certaines de leurs créations pour déclencher des événements amusants, comme des explosions.",
     tags: ['Unity', 'VR', 'C#'],
+    statut: 'Terminé',
     link: 'https://github.com/maximelegru/MatterCrafter',
     image: "/thumbnail/mattercrafter.png",
     type: 'dev',
     video: "https://youtu.be/JgGtTLXD4Cs",
+    place : "UQAC - Québec",
+    date : "Hiver 2025"
   },
   {
     title: 'Portfolio Personnel',
     description: 'Site portfolio interactif avec animations 3D',
     tags: ['React', 'Three.js', 'Tailwind CSS'],
+    statut: 'En cours',
     link: 'https://github.com/benboisedu354/Portfolio',
     image: "/thumbnail/portfolio.png",
     type: 'dev',
     video: undefined,
+    place : "Troyes - France",
+    date : "Mars 2026"
+  },
+  {
+    title: 'Script de Cybersécurité',
+    description:
+      'Script de cybersécurité pour scanner les vulnérabilités d’un réseau local et générer un rapport détaillé',
+    tags: ['Python', 'C#'],
+    statut: 'Terminé',
+    link: undefined,
+    image: undefined,
+    type: 'dev',
+    video: undefined,
+    place : "UQAC - Québec",
+    date : "Hiver 2025"
   },
   {
     title: 'Etiquette Eau de Vie de Bière',
     description:
       "Design d'étiquettes pour une eau de vie de bière pour la distillerie Gueules Noires, réalisées avec Figma",
     tags: ['Figma', 'Design Graphique'],
+    statut: 'Terminé',
     link: 'https://www.figma.com/proto/WW6Dy5gTJdtXJ5I28FxcRZ/Etiquettes?node-id=26-7&p=f&t=nH9NYfOhYoKcesC1-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1',
     image: '/thumbnail/eau_de_vie_biere.png',
     type: 'graphic',
     video: undefined,
+    place : "Auchy-les-mines - France",
+    date : "Avril 2025"
   },
 ]
 
@@ -106,13 +141,13 @@ export const languages: language[] = [
 
 export const otherProjects: otherProject[] = [
   {
-    title: 'Application Mobile de Voyage',
+    title: 'Application de Voyage',
     tech: 'React Native · Laravel · MySQL',
     icon: '✈️',
     link : ''
   },
   {
-    title: 'Gestion du Garde-manger',
+    title: 'SmartPantry',
     tech: 'React · Python · Générateur de recettes',
     icon: '🍳',
   },
@@ -127,7 +162,7 @@ export const otherProjects: otherProject[] = [
     icon: '🤖',
   },
   {
-    title : 'Jeu en réalité virtuelle MatterCrafter',
+    title : 'MatterCrafter',
     tech : 'Unity · C# · VR',
     icon : '🎮',
   },

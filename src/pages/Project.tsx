@@ -32,7 +32,7 @@ export default function Project() {
                     {project?.title}
                 </h1>
             </div>
-            <div className="flex flex-wrap gap-4 mb-6">
+            <div className="flex flex-wrap gap-4 mb-6 items-center">
                 {project?.tags.map((tag, i) => (
                     <span key={i} className="px-3 py-1 bg-indigo-500/10 text-indigo-400 rounded-full text-sm hover:bg-indigo-500/20 transition-colors cursor-pointer ">
                         {/* Redirect to projects page with tag filter */}
@@ -41,6 +41,9 @@ export default function Project() {
                         </Link>
                     </span>
                 ))}
+                <span className="text-sm text-indigo-400 uppercase tracking-wide">
+                    {project?.place} - {project?.date}
+                </span>
             </div>
             <p className="text-lg text-gray-300 mb-6">{project?.description}</p>
             {project?.link && (
@@ -49,8 +52,8 @@ export default function Project() {
                 </a>
             )}
             {project?.video && (
-                <div className="mt-10">
-                    <ReactPlayer src={project.video} controls width="100%" height="800px" />
+                <div className="mt-10 w-full h-auto">
+                    <ReactPlayer src={project.video} controls width="100%" height="800px" className='w-full h-full md:h-[200px]' />
                 </div>
             )}
         </div>

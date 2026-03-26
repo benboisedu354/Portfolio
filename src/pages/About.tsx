@@ -195,7 +195,7 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {otherProjects.map((project, i) => (
               // {redirect to the project page}
-              <Link to={project.link || '#'} target="_blank" rel="noopener noreferrer" key={i} className="group">
+              <Link to={`/projects/${project.title.replace(/\s+/g, '-').toLowerCase()}`} key={i} className="no-underline" preventScrollReset >
                 <div
                   key={i}
                   className="p-6 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-indigo-500/30 rounded-lg hover:border-purple-500/50 hover:shadow-lg hover:shadow-indigo-500/20 transition-all group"
