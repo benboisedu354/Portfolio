@@ -27,15 +27,13 @@ export default function Portfolio() {
               <Link to="/projects">Voir mes projets</Link>
             </button>
             <button className="px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-semibold text-indigo-400 bg-indigo-500/5 transition-all transform hover:scale-105 relative group overflow-hidden text-sm sm:text-base">
-             <Link to="/contact">Me contacter</Link>
+              <Link to="/contact">Me contacter</Link>
             </button>
           </div>
         </div>
 
         <div className="absolute -top-20 -left-20 w-72 h-72 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full opacity-30 filter blur-3xl animate-pulse-slow" />
         <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-gradient-to-r from-indigo-400 to-blue-400 rounded-full opacity-30 filter blur-3xl animate-pulse-slow animation-delay-2000" />
-
-        <div className="absolute inset-0 bg-black/50" />
       </div>
 
       <div className="bg-darker/50 backdrop-blur-sm border-t border-indigo-500/20">

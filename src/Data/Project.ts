@@ -5,10 +5,11 @@ export interface Project {
   tags: string[]
   statut: 'En cours' | 'Terminé' | 'À venir'
   link?: string
-  type?: 'dev' | 'graphic' 
+  type?: 'dev' | 'graphic'
   video?: string
-  place : string | undefined
-  date : string | undefined
+  place: string | undefined
+  date: string | undefined
+  ImageArray?: string[]
 }
 
 export interface language {
@@ -50,8 +51,8 @@ export const projects: Project[] = [
     image: undefined,
     type: 'dev',
     video: undefined,
-    place : "UQAC - Québec",
-    date : "Automne 2024"
+    place: 'UQAC - Québec',
+    date: 'Automne 2024',
   },
   {
     title: 'Dailies',
@@ -64,8 +65,8 @@ export const projects: Project[] = [
       'https://github.com/benboisedu354/Dailies_Kotlin/blob/main/app/src/main/res/drawable/logo_appli.png?raw=true',
     type: 'dev',
     video: undefined,
-    place : "UQAC - Québec",
-    date : "Hiver 2025"
+    place: 'UQAC - Québec',
+    date: 'Hiver 2025',
   },
   {
     title: 'Labyrinthe Python',
@@ -76,9 +77,8 @@ export const projects: Project[] = [
     image: undefined,
     type: 'dev',
     video: undefined,
-    place : "IUT de Lens - France",
-    date : "Juin 2025"
-
+    place: 'IUT de Lens - France',
+    date: 'Juin 2025',
   },
   {
     title: 'MatterCrafter',
@@ -87,11 +87,16 @@ export const projects: Project[] = [
     tags: ['Unity', 'VR', 'C#'],
     statut: 'Terminé',
     link: 'https://github.com/maximelegru/MatterCrafter',
-    image: "/thumbnail/mattercrafter.png",
+    image: '/thumbnail/mattercrafter.png',
     type: 'dev',
-    video: "https://youtu.be/JgGtTLXD4Cs",
-    place : "UQAC - Québec",
-    date : "Hiver 2025"
+    video: 'https://youtu.be/JgGtTLXD4Cs',
+    place: 'UQAC - Québec',
+    date: 'Hiver 2025',
+    ImageArray: [
+      '/ImgProject/MatterCrafter/MatterCrafter1.png',
+      '/ImgProject/MatterCrafter/MatterCrafter2.png',
+      '/ImgProject/MatterCrafter/MatterCrafter3.png',
+    ],
   },
   {
     title: 'Portfolio Personnel',
@@ -99,24 +104,63 @@ export const projects: Project[] = [
     tags: ['React', 'Three.js', 'Tailwind CSS'],
     statut: 'En cours',
     link: 'https://github.com/benboisedu354/Portfolio',
-    image: "/thumbnail/portfolio.png",
+    image: '/thumbnail/portfolio.png',
     type: 'dev',
     video: undefined,
-    place : "Troyes - France",
-    date : "Mars 2026"
+    place: 'Troyes - France',
+    date: 'Mars 2026',
   },
   {
-    title: 'Script de Cybersécurité',
+    title: 'Boutique Python ',
     description:
-      'Script de cybersécurité pour scanner les vulnérabilités d’un réseau local et générer un rapport détaillé',
-    tags: ['Python', 'C#'],
+      'Boutique développée en Python naviguable en ligne de commande, avec gestion de stock, panier d achat et système de paiement simulé',
+    tags: ['Python'],
     statut: 'Terminé',
     link: undefined,
     image: undefined,
     type: 'dev',
     video: undefined,
-    place : "UQAC - Québec",
-    date : "Hiver 2025"
+    place: 'Novembre - Troyes - France',
+    date: 'Novembre 2025',
+  },
+  {
+    title: 'Bot Discord',
+    description:
+      'Bot de modération et de divertissement pour serveur Discord, développé en Typescript avec des fonctionnalités personnalisées',
+    tags: ['Typescript', 'Discord.js'],
+    statut: 'Terminé',
+    link: undefined,
+    image: undefined,
+    type: 'dev',
+    video: undefined,
+    place: 'IUT de Lens - France',
+    date: 'Avril 2024',
+  },
+  {
+    title: 'Cryptage de messages RSA',
+    description:
+      'Programme de cryptage et de décryptage de messages utilisant l’algorithme RSA, développé en Python',
+    tags: ['Python', 'Cryptographie'],
+    statut: 'Terminé',
+    link: undefined,
+    image: undefined,
+    type: 'dev',
+    video: undefined,
+    place: 'UQAC - Québec',
+    date: '27 décembre 2024',
+  },
+  {
+    title: 'Programme de santé',
+    description:
+      'Application de suivi de la santé avec journal alimentaire, suivi de l’activité physique et rappels de médicaments, développée en Python',
+    tags: ['Python'],
+    statut: 'En cours',
+    link: undefined,
+    image: undefined,
+    type: 'dev',
+    video: undefined,
+    place: 'UQAC - Québec',
+    date: '15 janvier 2025 ',
   },
   {
     title: 'Etiquette Eau de Vie de Bière',
@@ -128,8 +172,33 @@ export const projects: Project[] = [
     image: '/thumbnail/eau_de_vie_biere.png',
     type: 'graphic',
     video: undefined,
-    place : "Auchy-les-mines - France",
-    date : "Avril 2025"
+    place: 'Auchy-les-mines - France',
+    date: 'Avril 2025',
+  },
+  {
+    title: 'Carte de visite pour un distillateur',
+    description:
+      'Design de cartes de visite pour un distillateur, réalisées avec Figma, avec un style élégant et professionnel',
+    tags: ['Figma', 'Design Graphique'],
+    statut: 'Terminé',
+    link: 'https://www.figma.com/proto/WW6Dy5gTJdtXJ5I28FxcRZ/Carte-de-visite?node-id=26-7&p=f&t=nH9NYfOhYoKcesC1-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1',
+    image: '/thumbnail/carte_visite.png',
+    type: 'graphic',
+    video: undefined,
+    place: 'Auchy-les-mines - France',
+    date: 'Avril 2025',
+  },
+  {
+    title: 'Affiche de Festival du 13 Juillet',
+    description: "Design d'une affiche pour le festival du 13 Juillet, réalisée avec Canva",
+    tags: ['Canva', 'Design Graphique'],
+    statut: 'Terminé',
+    link: undefined,
+    image: '/thumbnail/affiche_festival.png',
+    type: 'graphic',
+    video: undefined,
+    place: 'Foncquevillers - France',
+    date: 'Mai 2024',
   },
 ]
 
@@ -144,7 +213,7 @@ export const otherProjects: otherProject[] = [
     title: 'Application de Voyage',
     tech: 'React Native · Laravel · MySQL',
     icon: '✈️',
-    link : ''
+    link: '',
   },
   {
     title: 'SmartPantry',
@@ -162,15 +231,15 @@ export const otherProjects: otherProject[] = [
     icon: '🤖',
   },
   {
-    title : 'MatterCrafter',
-    tech : 'Unity · C# · VR',
-    icon : '🎮',
+    title: 'MatterCrafter',
+    tech: 'Unity · C# · VR',
+    icon: '🎮',
   },
   {
-    title : 'Portfolio Personnel',
-    tech : 'React · Three.js · Tailwind CSS',
-    icon : '💻',
-  }
+    title: 'Portfolio Personnel',
+    tech: 'React · Three.js · Tailwind CSS',
+    icon: '💻',
+  },
 ]
 
 export const skills: string[] = [
@@ -208,6 +277,11 @@ export const timeline: TimelineEvent[] = [
         title: 'Projets personnels',
         description: 'Création de petits projets pour apprendre et expérimenter',
         icon: '💡',
+      },
+      {
+        title: 'Apprentissage des premiers langages',
+        description: 'Initiation à HTML/CSS et JavaScript, découverte des CMS (WIX, Shopify)',
+        icon: '📚',
       },
     ],
   },

@@ -1,15 +1,14 @@
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
-import { useFrame } from '@react-three/fiber'
 
 /**
  * Exemple : Charger et animer un modèle GLTF
- * 
+ *
  * Utilisation :
  * 1. Place ton modèle dans src/assets/models/
  * 2. Utilise : <Model url="/models/ton-modele.glb" />
- * 
+ *
  * Pour convertir un fichier glb en composant React :
  * npx gltfjsx ton-modele.glb
  */
@@ -20,11 +19,20 @@ interface ModelProps {
   position?: [number, number, number]
   rotation?: [number, number, number]
   color?: string
+  opacity?: number
 }
 
-export function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 0], color }: ModelProps) {
+export function Model({
+  url,
+  scale = 1,
+  position = [0, -10, 0],
+  rotation = [0, 0, 0],
+  color,
+  opacity,
+}: ModelProps) {
   const group = useRef<THREE.Group>(null)
   const { scene, animations } = useGLTF(url)
+  const clonedScene = scene.clone(true)
   const { actions } = useAnimations(animations, group)
 
   // Jouer les animations si disponibles
@@ -41,17 +49,27 @@ export function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 
       scene.traverse((child) => {
         if ((child as THREE.Mesh).isMesh) {
           const mesh = child as THREE.Mesh
-          if (mesh.material) {
-            if (Array.isArray(mesh.material)) {
-              mesh.material.forEach((mat) => {
-                if (mat instanceof THREE.MeshStandardMaterial || mat instanceof THREE.MeshPhongMaterial) {
-                  mat.color.set(color)
-                }
-              })
-            } else if (mesh.material instanceof THREE.MeshStandardMaterial || mesh.material instanceof THREE.MeshPhongMaterial) {
-              mesh.material.color.set(color)
+
+          const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material]
+
+          materials.forEach((mat) => {
+            if (
+              mat instanceof THREE.MeshStandardMaterial ||
+              mat instanceof THREE.MeshPhongMaterial
+            ) {
+              mat.transparent = true
+              mat.opacity = opacity ?? 1
+              if (mat.map) {
+                mat.map.generateMipmaps = false
+                mat.map.minFilter = THREE.LinearFilter
+                mat.map.needsUpdate = true
+              }
+
+              if (color) {
+                mat.color.set(color)
+              }
             }
-          }
+          })
         }
       })
     }
@@ -62,17 +80,9 @@ export function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 
     scene.position.sub(center)
   }, [scene, color])
 
-  // Rotation automatique
-  useFrame(() => {
-    if (group.current) {
-      group.current.rotation.x += 0.005
-      group.current.rotation.y += 0.01
-    }
-  })
-
   return (
     <group ref={group} position={position} rotation={rotation} scale={scale}>
-      <primitive object={scene} />
+      <primitive object={clonedScene} />
     </group>
   )
 }
@@ -83,6 +93,7 @@ export function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 
 export function InteractiveModel({ url }: ModelProps) {
   const group = useRef<THREE.Group>(null)
   const { scene } = useGLTF(url)
+  const clonedScene = scene.clone(true)
 
   const handleClick = () => {
     if (group.current) {
@@ -92,7 +103,7 @@ export function InteractiveModel({ url }: ModelProps) {
 
   return (
     <group ref={group} onClick={handleClick}>
-      <primitive object={scene} />
+      <primitive object={clonedScene} />
     </group>
   )
 }
@@ -119,4 +130,5 @@ export function LoaderModel({ url }: ModelProps) {
 }
 
 // Precharger les modèles
-useGLTF.preload('/models/ton-modele.glb')
+useGLTF.preload('/models/server3D/scene.gltf')
+useGLTF.preload('/models/Laptop3D/scene.gltf')

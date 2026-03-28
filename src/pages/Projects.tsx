@@ -5,12 +5,9 @@ import { useLocation } from 'react-router-dom'
 import ProjectCard from '@/components/common/ProjectCard.tsx'
 
 export default function Projects() {
-
   const { search } = useLocation()
   const queryParams = new URLSearchParams(search)
   const tag = queryParams.get('tag')
-
-
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -28,12 +25,11 @@ export default function Projects() {
     ? filteredProjects.filter((project) => project.tags.includes(selectedTag))
     : filteredProjects
 
-
-    useEffect(() => {
-      if (tag) {
-        setSelectedTag(tag)
-      }
-    }, [tag])
+  useEffect(() => {
+    if (tag) {
+      setSelectedTag(tag)
+    }
+  }, [tag])
   return (
     <div className="pt-20 min-h-screen">
       <div className="max-w-6xl mx-auto px-4 py-20">
@@ -51,13 +47,15 @@ export default function Projects() {
             }`}
           >
             Projets de Développement
-          <span className={`px-1 py-2 rounded-lg font-semibold transition-colors  ${
-              activeFilter === 'dev'
-                ? 'text-white'
-                : 'bg-indigo-500/5 text-indigo-400 hover:bg-indigo-500/10'
-            }`}>
-            ({projects.filter((project) => project.type === 'dev').length})
-          </span>
+            <span
+              className={`px-1 py-2 rounded-lg font-semibold transition-colors  ${
+                activeFilter === 'dev'
+                  ? 'text-white'
+                  : 'bg-indigo-500/5 text-indigo-400 hover:bg-indigo-500/10'
+              }`}
+            >
+              ({projects.filter((project) => project.type === 'dev').length})
+            </span>
           </button>
 
           <button
@@ -69,22 +67,22 @@ export default function Projects() {
             }`}
           >
             Projets Graphiques
-          <span className={`px-1 py-2 rounded-lg font-semibold transition-colors${
-              activeFilter === 'graphic'
-                ? 'text-white'
-                : 'bg-indigo-500/5 text-indigo-400 hover:bg-indigo-500/10'
-            }`}> 
-            ({projects.filter((project) => project.type === 'graphic').length})
-          </span>
+            <span
+              className={`px-1 py-2 rounded-lg font-semibold transition-colors${
+                activeFilter === 'graphic'
+                  ? 'text-white'
+                  : 'bg-indigo-500/5 text-indigo-400 hover:bg-indigo-500/10'
+              }`}
+            >
+              ({projects.filter((project) => project.type === 'graphic').length})
+            </span>
           </button>
 
           <FilterTagProject onTagChange={handleTagChange} />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredByTagProjects.map((project, i) => (
-            ProjectCard({ project, index: i })
-          ))}
+          {filteredByTagProjects.map((project, i) => ProjectCard({ project, index: i }))}
         </div>
       </div>
     </div>
