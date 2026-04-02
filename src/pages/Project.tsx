@@ -38,6 +38,16 @@ export default function Project() {
           <h1 className="text-5xl font-bold  bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
             {project?.title}
           </h1>
+          {project?.link && (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all"
+          >
+            Voir le github
+          </a>
+        )}
         </div>
         <div className="flex flex-wrap gap-4 mb-6 items-center">
           {project?.tags.map((tag, i) => (
@@ -59,16 +69,7 @@ export default function Project() {
           </span>
         </div>
         <p className="text-lg text-gray-300 mb-6">{project?.description}</p>
-        {project?.link && (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all"
-          >
-            Voir le github
-          </a>
-        )}
+        <p className="text-md text-gray-400 mb-6">{project?.text}</p>
         {project?.ImageArray && project?.ImageArray.length > 0 && (
           <div className="mt-10 w-full h-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {project.ImageArray.map((img, i) => (

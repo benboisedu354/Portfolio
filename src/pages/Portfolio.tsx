@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import ThreeDScene from '@components/3d/ThreeDScene'
 import { timeline } from '../Data/Project.ts'
 import { Link } from 'react-router-dom'
@@ -7,6 +7,25 @@ export default function Portfolio() {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+
+  // I want a typing effect for the description text, but I want it to be fast and not too long, so I will use a simple setTimeout to achieve this effect. I will also use a state to store the current text and update it every 50ms until the full text is displayed.
+  const [displayText, setDisplayText] = useState('')
+  const fullText = 'Développeur web, automatisation et cyber-sécurité'
+
+  useEffect(() => {
+    let index = 0
+    const typingInterval = setInterval(() => {
+      if (index < fullText.length) {
+        setDisplayText(fullText.slice(0, index + 1))
+        index++
+      } else {
+        clearInterval(typingInterval)
+      }
+    }, 50)
+
+    return () => clearInterval(typingInterval)
+  }, [])
+
 
   return (
     <div className="w-full">
@@ -20,7 +39,7 @@ export default function Portfolio() {
             Benjamin Boisédu
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 animate-slide-in">
-            Développeur web, automatisation et cyber-sécurité
+            {displayText}
           </p>
           <div className="flex gap-3 sm:gap-4 pt-8 justify-center md:justify-start flex-wrap">
             <button className="px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg font-semibold transition-all transform hover:scale-105 hover:shadow-[0_0_20px_#6366f1] relative group overflow-hidden text-sm sm:text-base">
@@ -41,8 +60,8 @@ export default function Portfolio() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { label: 'Double Licence', value: 'Bac+3', color: 'from-indigo-400 to-indigo-600' },
-              { label: 'Projets réalisés', value: '4+', color: 'from-purple-400 to-purple-600' },
-              { label: 'Technologies', value: '10+', color: 'from-pink-400 to-pink-600' },
+              { label: 'Projets réalisés', value: '10+', color: 'from-purple-400 to-purple-600' },
+              { label: 'Expérience', value: '1 an', color: 'from-pink-400 to-pink-600' },
             ].map((stat, i) => (
               <div key={i} className="text-center group">
                 <div className="text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent mb-2">

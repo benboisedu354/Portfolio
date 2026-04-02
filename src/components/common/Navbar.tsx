@@ -14,7 +14,6 @@ export default function Navbar() {
               Benjamin Boisédu
             </span>
           </Link>
-
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             <NavLink to="/">Accueil</NavLink>
@@ -45,6 +44,11 @@ export default function Navbar() {
             <MobileNavLink to="/contact">Contact</MobileNavLink>
           </div>
         )}
+        <div className="text-white text-center py-2">
+          <p className="text-sm font-bold text-red-600">
+            ⚠️ Ce portfolio est en cours de développement. Certaines fonctionnalités peuvent ne pas être disponibles ou fonctionner de manière optimale. Merci de votre compréhension !
+          </p>
+        </div>
       </div>
     </nav>
   )

@@ -99,8 +99,8 @@ export default function About() {
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             { label: 'Double Licence', value: 'Bac+3', color: 'from-indigo-400 to-indigo-600' },
-            { label: 'Projets réalisés', value: '4+', color: 'from-purple-400 to-purple-600' },
-            { label: 'Technologies', value: '10+', color: 'from-pink-400 to-pink-600' },
+            { label: 'Projets réalisés', value: '10+', color: 'from-purple-400 to-purple-600' },
+            { label: 'Expérience', value: '1 an', color: 'from-pink-400 to-pink-600' },
           ].map((stat, i) => (
             <div
               key={i}
@@ -128,12 +128,18 @@ export default function About() {
               {skills.map((skill, i) => (
                 <div
                   key={i}
-                  className="p-4 bg-indigo-500/10 border border-indigo-500/30 rounded-lg hover:bg-indigo-500/20 hover:border-purple-500/50 transition-all group"
+                  className="p-4 bg-indigo-500/10 border border-indigo-500/30 rounded-lg hover:bg-indigo-500/20 transition-all group"
                 >
-                  <span className="text-gray-300 group-hover:text-purple-300 transition-colors">
-                    ⚙️ {skill}
-                  </span>
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">💻</span>
+                    <div>
+                      <h4 className="text-lg font-bold text-indigo-300 group-hover:text-purple-300 transition-colors">
+                        {skill}
+                      </h4>
+                    </div>
+                  </div>
                 </div>
+
               ))}
             </div>
           </div>
@@ -192,7 +198,7 @@ export default function About() {
         {/* Projets Techniques */}
         <div className="mt-20 space-y-8">
           <h2 className="text-3xl font-bold text-indigo-400">Projets Techniques</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
             {otherProjects.map((project, i) => (
               // {redirect to the project page}
               <Link to={`/projects/${project.title.replace(/\s+/g, '-').toLowerCase()}`} key={i} className="no-underline" preventScrollReset >
@@ -205,6 +211,7 @@ export default function About() {
                     {project.title}
                   </h3>
                   <p className="text-sm text-gray-400">{project.tech}</p>
+                  <p className="text-sm text-gray-400 mt-2">{project.desc?.substring(0, 100)}...</p>
                 </div>
               </Link>
             ))}

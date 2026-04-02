@@ -1,7 +1,9 @@
+
 export interface Project {
   image: string | undefined
   title: string
   description: string
+  text?: string
   tags: string[]
   statut: 'En cours' | 'Terminé' | 'À venir'
   link?: string
@@ -23,6 +25,7 @@ export interface otherProject {
   tech: string
   icon: string
   link?: string
+  desc?: string
 }
 
 export interface TimelineEvent {
@@ -45,6 +48,7 @@ export const projects: Project[] = [
   {
     title: 'SmartPantry',
     description: 'Application de gestion de stock alimentaire pour éviter le gaspillage',
+    text : 'SmartPantry est une application de gestion de stock alimentaire développée en React pour le frontend et Laravel pour le backend, avec une base de données MySQL et utilise une api externe Spoonacular. L’application permet aux utilisateurs de suivre les aliments qu’ils ont chez eux, de recevoir des notifications avant que les produits ne périment et de générer des recettes personnalisées en fonction des ingrédients disponibles. L’objectif est d’aider les utilisateurs à réduire le gaspillage alimentaire et à mieux gérer leur cuisine.',
     tags: ['React', 'Laravel', 'MySQL'],
     statut: 'Terminé',
     link: 'https://github.com/benboisedu354/SmartPantry',
@@ -58,6 +62,7 @@ export const projects: Project[] = [
     title: 'Dailies',
     description:
       'Application mobile de suivi des tâches quotidiennes avec notifications et graphiques de progression',
+    text : 'Dailies est une application mobile de suivi des tâches quotidiennes développée en Kotlin pour Android. L’application permet aux utilisateurs de créer des listes de tâches, de définir des rappels et de suivre leur progression à l’aide de graphiques et de statistiques. L’objectif est d’aider les utilisateurs à rester organisés et motivés dans la réalisation de leurs objectifs quotidiens.',
     tags: ['Kotlin', 'Android', 'Sqlite'],
     statut: 'Terminé',
     link: 'https://github.com/benboisedu354/Dailies_Kotlin',
@@ -71,6 +76,7 @@ export const projects: Project[] = [
   {
     title: 'Labyrinthe Python',
     description: 'Jeu de labyrinthe en Python avec Pygame, généré aléatoirement à chaque partie',
+    text : 'Ce projet est un jeu de labyrinthe développé en Python avec la bibliothèque Pygame. Le labyrinthe est généré de manière aléatoire à chaque partie, offrant une expérience unique à chaque fois. Les joueurs peuvent naviguer à travers le labyrinthe en utilisant les touches directionnelles du clavier, avec pour objectif de trouver la sortie le plus rapidement possible. Le projet inclut également un système de score pour rendre le jeu plus engageant.',
     tags: ['Python', 'Pygame'],
     statut: 'Terminé',
     link: 'https://github.com/benboisedu354/pygame_laby',
@@ -101,6 +107,7 @@ export const projects: Project[] = [
   {
     title: 'Portfolio Personnel',
     description: 'Site portfolio interactif avec animations 3D',
+    text : 'Ce projet est un site portfolio personnel développé en React, avec des animations 3D réalisées à l’aide de Three.js et React Three Fiber, et stylisé avec Tailwind CSS. Le site présente mes réalisations, compétences et parcours professionnel de manière interactive et visuellement attrayante. L’objectif est de créer une expérience utilisateur immersive qui met en valeur mes projets et mon expertise dans le domaine du développement web.',
     tags: ['React', 'Three.js', 'Tailwind CSS'],
     statut: 'En cours',
     link: 'https://github.com/benboisedu354/Portfolio',
@@ -114,6 +121,7 @@ export const projects: Project[] = [
     title: 'Boutique Python ',
     description:
       'Boutique développée en Python naviguable en ligne de commande, avec gestion de stock, panier d achat et système de paiement simulé',
+    text : 'Ce projet est une boutique développée en Python, navigable en ligne de commande. La boutique permet aux utilisateurs de parcourir les produits disponibles, d’ajouter des articles à leur panier et de simuler un processus de paiement. Le projet inclut également une gestion de stock pour suivre les quantités disponibles et éviter les ruptures de stock. L’objectif est de réaliser une application simple mais fonctionnelle pour comprendre les concepts de base du développement d’une boutique en ligne et de la gestion des stocks.',
     tags: ['Python'],
     statut: 'Terminé',
     link: undefined,
@@ -127,8 +135,9 @@ export const projects: Project[] = [
     title: 'Bot Discord',
     description:
       'Bot de modération et de divertissement pour serveur Discord, développé en Typescript avec des fonctionnalités personnalisées',
+    text : 'Ce projet sert d’initiation au langage Typescript et à la création de bots pour Discord. Le bot inclut des fonctionnalités de modération telles que la suppression de messages, l’expulsion d’utilisateurs et la gestion des rôles, ainsi que des commandes de divertissement comme des jeux, des blagues et des citations aléatoires. L’objectif est de fournir une expérience interactive et amusante pour les membres du serveur tout en facilitant la gestion de la communauté.',
     tags: ['Typescript', 'Discord.js'],
-    statut: 'Terminé',
+    statut: 'En cours',
     link: undefined,
     image: undefined,
     type: 'dev',
@@ -140,8 +149,9 @@ export const projects: Project[] = [
     title: 'Cryptage de messages RSA',
     description:
       'Programme de cryptage et de décryptage de messages utilisant l’algorithme RSA, développé en Python',
-    tags: ['Python', 'Cryptographie'],
-    statut: 'Terminé',
+    text : 'Ce projet est un programme de cryptage et de décryptage de messages utilisant l’algorithme RSA, développé en Python. Le programme permet aux utilisateurs de chiffrer des messages en utilisant une clé publique et de les déchiffrer avec une clé privée correspondante. L’objectif est de fournir une solution simple pour sécuriser les communications et protéger les informations sensibles.',
+    tags: ['Python', 'Cryptographie', 'Cybersécurité'],
+    statut: 'En cours',
     link: undefined,
     image: undefined,
     type: 'dev',
@@ -153,7 +163,8 @@ export const projects: Project[] = [
     title: 'Programme de santé',
     description:
       'Application de suivi de la santé avec journal alimentaire, suivi de l’activité physique et rappels de médicaments, développée en Python',
-    tags: ['Python'],
+    text : 'Ce projet est en cours de développement et vise à créer une application complète de suivi de la santé. L’application permettra aux utilisateurs de suivre leur hydratation, leur alimentation, leur activité physique et leurs médicaments. L’objectif est de fournir une solution simple et efficace pour aider les utilisateurs à maintenir un mode de vie sain et équilibré.',
+    tags: ['Python', 'Santé', 'Bien-être'],
     statut: 'En cours',
     link: undefined,
     image: undefined,
@@ -166,6 +177,7 @@ export const projects: Project[] = [
     title: 'Etiquette Eau de Vie de Bière',
     description:
       "Design d'étiquettes pour une eau de vie de bière pour la distillerie Gueules Noires, réalisées avec Figma",
+    text : 'Ce projet consiste en la conception de plusieurs étiquettes pour une eau de vie de bière, réalisées avec Figma. Le design met en valeur l’identité de la distillerie Gueules Noires et propose un style élégant et moderne.',
     tags: ['Figma', 'Design Graphique'],
     statut: 'Terminé',
     link: 'https://www.figma.com/proto/WW6Dy5gTJdtXJ5I28FxcRZ/Etiquettes?node-id=26-7&p=f&t=nH9NYfOhYoKcesC1-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1',
@@ -174,11 +186,16 @@ export const projects: Project[] = [
     video: undefined,
     place: 'Auchy-les-mines - France',
     date: 'Avril 2025',
+    ImageArray: [
+      '/ImgProject/Eau_de_vie/eau_de_vie_biere.png',
+      '/ImgProject/Eau_de_vie/eau_de_vie_brune.png',
+    ],
   },
   {
     title: 'Carte de visite pour un distillateur',
     description:
       'Design de cartes de visite pour un distillateur, réalisées avec Figma, avec un style élégant et professionnel',
+    text : 'Ce projet consiste en la conception de cartes de visite pour un distillateur, réalisées avec Figma. Le design met en valeur l’identité du distillateur et propose un style élégant et professionnel. Intégrant un code QR pour un accès rapide aux informations de contact et au site web, permettant ainsi aux utilisateurs de facilement accéder à plus d’informations.',
     tags: ['Figma', 'Design Graphique'],
     statut: 'Terminé',
     link: 'https://www.figma.com/proto/WW6Dy5gTJdtXJ5I28FxcRZ/Carte-de-visite?node-id=26-7&p=f&t=nH9NYfOhYoKcesC1-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1',
@@ -191,6 +208,7 @@ export const projects: Project[] = [
   {
     title: 'Affiche de Festival du 13 Juillet',
     description: "Design d'une affiche pour le festival du 13 Juillet, réalisée avec Canva",
+    text : "Ce projet consiste en la conception d'une affiche pour le festival du 13 Juillet, réalisée avec Canva. Le design met en valeur l'ambiance festive de l'événement et utilise des éléments visuels attrayants pour attirer l'attention du public.",
     tags: ['Canva', 'Design Graphique'],
     statut: 'Terminé',
     link: undefined,
@@ -213,32 +231,39 @@ export const otherProjects: otherProject[] = [
     title: 'Application de Voyage',
     tech: 'React Native · Laravel · MySQL',
     icon: '✈️',
+    desc : 'Application mobile de planification de voyages avec recommandations personnalisées et partage d’itinéraires',
     link: '',
   },
   {
     title: 'SmartPantry',
-    tech: 'React · Python · Générateur de recettes',
+    tech: 'React · Laravel · API REST · MySQL',
     icon: '🍳',
+    desc: 'Application de gestion de cuisine avec génération de recettes personnalisées',
   },
   {
-    title: 'Script de Cybersécurité',
-    tech: 'Python · C#',
-    icon: '🔐',
+    title: 'Dailies',
+    tech: 'Kotlin · Android · SQLite',
+    icon: '📅',
+    desc: 'Application de suivi des tâches quotidiennes avec rappels et statistiques de progression',
   },
   {
     title: 'Bot Conversationnel',
-    tech: 'React · Laravel · MySQL',
+    tech: 'React · Python · LLM (OpenAI)',
     icon: '🤖',
+    desc: 'Bot de conversation spécialisé dans un domaine particulier (ex : support client, assistant personnel, etc.)',
+
   },
   {
     title: 'MatterCrafter',
     tech: 'Unity · C# · VR',
     icon: '🎮',
+    desc: "Matter Crafter est un jeu de simulation en réalité virtuelle où la recherche et l'expérimentation sont au cœur du gameplay. Le but du jeu est de créer un maximum d’éléments et d’objets en combinant quatre éléments initiaux : la terre, le vent, l'eau et le feu. Les joueurs peuvent interagir avec certaines de leurs créations pour déclencher des événements amusants, comme des explosions.",
   },
   {
     title: 'Portfolio Personnel',
     tech: 'React · Three.js · Tailwind CSS',
     icon: '💻',
+    desc: 'Site portfolio interactif avec animations 3D',
   },
 ]
 
@@ -358,6 +383,29 @@ export const timeline: TimelineEvent[] = [
         description:
           "Exploration de sujets complémentaires dans le domaine de l'informatique (IA, cybersécurité, etc.)",
         icon: '📚',
+      },
+    ],
+  },
+  {
+    year: '2025',
+    title: 'Stage de fin d’études UQAC',
+    description: 'Stagiaire Développeur Web | UQAC - Québec',
+    type: 'main',
+    branches: [
+      {
+        title: 'Choix du projet',
+        description: 'Sélection d’un projet ambitieux en collaboration avec des étudiants canadiens et français',
+        icon: '🚀'
+      },
+      {
+        title: 'Développement',
+        description: 'Développement du projet en utilisant des technologies modernes et adaptées ',
+        icon: '💻'
+      },
+      {
+        title: 'Collaboration internationale',
+        description: 'Travail en équipe avec des étudiants de différentes cultures et horizons',
+        icon: '🌍'
       },
     ],
   },

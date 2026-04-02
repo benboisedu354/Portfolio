@@ -22,9 +22,27 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                   </div>
                   <div className="p-6 space-y-4">
                     <div>
-                      <h3 className="text-xl font-bold text-indigo-300 group-hover:text-purple-300 transition-colors">
-                        {project.title}
-                      </h3>
+                      <div className="flex items-center gap-4 mb-2">
+                        <h3 className="text-l font-bold text-indigo-300 group-hover:text-purple-300 transition-colors">
+                          {project.title}
+                        </h3>
+                        <span>
+                          {project.statut === 'En cours' ? (
+                            <span className="text-xs px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded-full">
+                              En cours
+                            </span>
+                          ) : project.statut === 'Terminé' ? (
+                            <span className="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">
+                              Terminé
+                            </span>
+                          ) : (
+                            <span className="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">
+                              À venir
+                            </span>
+                          )}
+                        </span>
+                      </div>
+                      
                       <span className="text-xs text-indigo-400 uppercase tracking-wide">
                         {project.place} - {project.date}
                       </span>

@@ -11,6 +11,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-gradient-to-br from-darker via-dark to-darker">
+        {/* Warning Line  */}
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
